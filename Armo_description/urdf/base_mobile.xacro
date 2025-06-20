@@ -73,7 +73,7 @@
                 <material name="blue"/>
             </visual>
             <xacro:cylinder_inertia m="${m}" r="${r}" l="${l}" o_xyz="${x} ${y} ${z}" o_rpy="${roll} ${p} ${yaw}"/>
-            <xacro:sphere_collision r="${r}" o_xyz="${x} ${y} ${z}" o_rpy="${roll} ${p} ${yaw}"/>
+            <xacro:cylinder_collision r="${r}" l="${l}" o_xyz="${x} ${y} ${z}" o_rpy="${roll} ${p} ${yaw}"/>
         </link>
     </xacro:macro>
 
