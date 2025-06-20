@@ -25,7 +25,49 @@ This repository demonstrates a complete SLAM, localization, and navigation pipel
 
 
 ## 📦 Installation
-1. **Clone the repository**
-   cd ros2_ws/src
-   git clone git@github.com:Humobot1812/Differential-Drive-ROS2-Navigation-Project.git
-   cd Differential-Drive-ROS2-Navigation-Project   
+1. Build the workspace and Clone the repository
+- cd
+- mkdir Humobotss_ws
+- cd Humobotss_ws
+- mkdir src
+- cd ../
+- colcon build
+- cd src
+- git clone https://github.com/Humobot1812/Differential-Drive-ROS2-Navigation-Project.git.
+
+## Structure of workspace
+└── src/
+    ├── Armo_bringup/
+    │   ├── launch/
+    │   │   │   ├── Armo_display.launch.xml
+    │   │   │   ├── Armo_display_map.launch.xml
+    │   │   │   └── Armo_display_navigation.launch.xml
+    │   ├── CMakeLists.txt
+    │   └── package.xml
+    └── Armo_description/
+        ├── urdf/
+        │   │   ├── base_mobile.xacro
+        │   │   ├── base_mobile_2.xacro
+        │   │   ├── base_mobile_3.xacro
+        │   │   ├── common_properties.xacro
+        │   │   ├── robot_base.urdf.xacro
+        │   │   └── robot_gazebo.xacro
+        ├── config/
+        │   │   ├── ekf.yaml
+        │   │   ├── gazebo_bridge.yaml
+        │   │   ├── param_nav2.yaml
+        │   │   └── Slam_param.yaml
+        ├── maps/
+        │   │   ├── Maze.pgm
+        │   │   └── Maze.yaml
+        ├── rviz/
+        │   │   ├── rviz_config.rviz
+        │   │   └── rviz_config_nav2.rviz
+        ├── world/
+        │   │   ├── Maze.sdf
+        │   │   └── Maze.world
+        ├── CMakeLists.txt
+        └── package.xml
+
+
+
