@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-    <material name="blck">
+    <material name="black">
         <color rgba="1 1 1 1"/>
     </material>
 
