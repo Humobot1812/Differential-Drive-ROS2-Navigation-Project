@@ -31,7 +31,7 @@ A complete SLAM, localization, and navigation pipeline for a four‑wheeled diff
 
 * **OS:** Ubuntu 22.04 LTS
 * **ROS 2 Distribution:** Humble Hawksbill
-* **Gazebo:** 11 (Harmonic)
+* **Gazebo:** Ignition (Harmonic)
 * **Tools:**
 
   * RViz 2
