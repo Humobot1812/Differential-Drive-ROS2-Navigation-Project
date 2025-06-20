@@ -1,114 +1,191 @@
-# Differential-Drive-ROS2-Navigation-Project
-This repository demonstrates a complete SLAM, localization, and navigation pipeline for a four-wheeled differential drive robot using ROS 2 Humble, Gazebo (Harmonic), SLAM Toolbox, AMCL, and Nav2.
+Here’s a polished, GitHub‑ready README for your Differential‑Drive‑ROS2‑Navigation‑Project:
 
+---
 
+# Differential‑Drive‑ROS2‑Navigation‑Project
+
+A complete SLAM, localization, and navigation pipeline for a four‑wheeled differential‑drive robot using ROS 2 Humble, Gazebo (Harmonic), SLAM Toolbox, AMCL, and Nav2.
+
+---
 
 ## 🚀 Features
-- **SLAM Mapping:** Creates a 2D occupancy map of the environment using SLAM Toolbox.
-- **Localization:** Uses AMCL (Adaptive Monte Carlo Localization) to localize the robot within the generated map.
-- **Navigation:** Employs Nav2 (Navigation 2) stack for path planning and obstacle avoidance.
-- **Simulation:** Runs in Gazebo (Harmonic) with a differential drive robot model.
-- **Visualization:** Supports RViz2 for real-time map and path visualization.
-- **Image Monitoring:** Uses rqt_image_view to display camera feed from a gimbal-mounted camera.
-- **Frame Inspection:** Includes tf2_tools view_frames for inspecting TF transform trees.
 
+* **SLAM Mapping**
+  Build a 2D occupancy map of your environment with SLAM Toolbox.
+* **Localization**
+  Track the robot’s pose on the map using AMCL (Adaptive Monte Carlo Localization).
+* **Autonomous Navigation**
+  Plan and follow paths with obstacle avoidance via the Nav2 stack.
+* **Simulation**
+  Run everything in Gazebo (Harmonic) on a differential‑drive robot model.
+* **Visualization**
+  View real‑time maps, paths, and TF frames in RViz 2.
+* **Camera Monitoring**
+  Stream and control a gimbal‑mounted camera with `rqt_image_view`.
+* **TF Inspection**
+  Inspect transform trees using `tf2_tools view_frames`.
 
-## 🔧 Prerequisites
-- Ubuntu 22.04 LTS
-- ROS 2 Humble Hawksbill
-- Gazebo 11 (Harmonic)
-- RViz2
-- rqt_image_view
-- tf2_tools
-- A gimbal-mounted camera plugin for Gazebo
-- slam_toolbox, nav2_bringup, nav2_amcl, gazebo_ros, packages installed
+---
 
+## 🎯 Prerequisites
 
-## 📦 Installation
-1. Build the workspace and Clone the repository
-- cd
-- mkdir Humobotss_ws
-- cd Humobotss_ws
-- mkdir src
-- cd ../
-- colcon build
-- cd src
-- git clone https://github.com/Humobot1812/Differential-Drive-ROS2-Navigation-Project.git.
+* **OS:** Ubuntu 22.04 LTS
+* **ROS 2 Distribution:** Humble Hawksbill
+* **Gazebo:** 11 (Harmonic)
+* **Tools:**
 
-## Structure of workspace
-- └── src/
--   ├── Armo_bringup/
--   │   ├── launch/
--   │   │   │   ├── Armo_display.launch.xml
--   │   │   │   ├── Armo_display_map.launch.xml
--   │   │   │   └── Armo_display_navigation.launch.xml
--   │   ├── CMakeLists.txt
--   │   └── package.xml
--   └── Armo_description/
--   │   |   ├── urdf/
--   │   │   │   ├── base_mobile.xacro
--   │   │   │   ├── base_mobile_2.xacro
--   │   │   │   ├── base_mobile_3.xacro
--   │   │   │   ├── common_properties.xacro
--   │   │   │   ├── robot_base.urdf.xacro
--   │   │   │   └── robot_gazebo.xacro
--   │   ├── config/
--   │   │   │   ├── ekf.yaml
--   │   │   │   ├── gazebo_bridge.yaml
--   │   │   │   ├── gazebo_bridge_2.yaml
--   │   │   │   ├── param_nav2.yaml
--   │   │   │   └── Slam_param.yaml
--   │   ├── maps/
--   │   │   │   ├── Maze.pgm
--   │   │   │   └── Maze.yaml
--   │   ├── rviz/
--   │   │   │   ├── rviz_config.rviz
--   │   │   │   └── rviz_config_nav2.rviz
--   │   ├── world/
--   │   │   │   ├── Maze.sdf
--   │   │   │   └── Maze.world
--   │   ├── CMakeLists.txt
--   │   └── package.xml
+  * RViz 2
+  * rqt\_image\_view
+  * tf2\_tools
+* **ROS 2 Packages:**
 
-# For running for just visualising in gazebo and rviz:
-- cd Humobotss_ws
-- sourec /opt/ros/humble/setup.bash
-- ros2 launch Armo_bringup Armo_display.launch.xml
+  * `slam_toolbox`
+  * `nav2_bringup`
+  * `nav2_amcl`
+  * `gazebo_ros`
+  * `teleop_twist_keyboard`
 
-# For Mapping and Localization :
-- cd Humobotss_ws
-- sourec /opt/ros/humble/setup.bash
-- ros2 launch Armo_bringup Armo_display_map.launch.xml                                   --> in terminal 1
-- ros2 run teleop_twist_keyboard teleop_twist_keyboard                                   --> in terminal 2
-- ------>>>>
-- After the map is ready give below command to save the map:
-- ------>>>>>
-- ros2 run nav2_map_server map_saver_cli -f src/Armo_description/maps/New_map            --> in terminal 3
+---
 
-# To view camera feed in rqt and move the camera joint :
-- ros2 run rqt_image_view rqt_image_view                                                 --> in terminal 4
-- ros2 topic pub --once  /joint0/cmd_pos std_msgs/msg/Float64 "data: <value>"            --> in terminal 5
+## 🏗️ Repository Structure
 
-- You can give <value> as any number between -1.57 to 1.57 according to angle of camera you want as 1.57 = 90 degree and -1.57 = -90 degree
+```
+Differential-Drive-ROS2-Navigation-Project/
+├── Armo_bringup/
+│   ├── launch/
+│   │   ├── Armo_display.launch.xml
+│   │   ├── Armo_display_map.launch.xml
+│   │   └── Armo_display_navigation.launch.xml
+│   ├── CMakeLists.txt
+│   └── package.xml
+└── Armo_description/
+    ├── urdf/
+    │   ├── base_mobile.xacro
+    │   ├── base_mobile_2.xacro
+    │   ├── base_mobile_3.xacro
+    │   ├── common_properties.xacro
+    │   ├── robot_base.urdf.xacro
+    │   └── robot_gazebo.xacro
+    ├── config/
+    │   ├── ekf.yaml
+    │   ├── gazebo_bridge.yaml
+    │   ├── gazebo_bridge_2.yaml
+    │   ├── param_nav2.yaml
+    │   └── Slam_param.yaml
+    ├── maps/
+    │   ├── Maze.pgm
+    │   └── Maze.yaml
+    ├── rviz/
+    │   ├── rviz_config.rviz
+    │   └── rviz_config_nav2.rviz
+    ├── world/
+    │   ├── Maze.sdf
+    │   └── Maze.world
+    ├── CMakeLists.txt
+    └── package.xml
+```
 
+---
 
-# For Navigation :
-- cd Humobotss_ws
-- sourec /opt/ros/humble/setup.bash
-- ros2 launch Armo_bringup Armo_display_navigation.launch.xml                             --> in terminal 1
+## ⚙️ Installation & Build
 
-# For transform tree :
-- ros2 run tf2_tools view_frames
+1. **Clone & Build**
 
-# Feel free to fork this repo and do your own experiment with this !!!!!!
+   ```bash
+   mkdir -p ~/Humobotss_ws/src
+   cd ~/Humobotss_ws/src
+   git clone https://github.com/Humobot1812/Differential-Drive-ROS2-Navigation-Project.git
+   cd ~/Humobotss_ws
+   colcon build
+   ```
+
+2. **Source ROS 2**
+
+   ```bash
+   source /opt/ros/humble/setup.bash
+   source ~/Humobotss_ws/install/setup.bash
+   ```
+
+---
+
+## 🛰️ Usage
+
+### 1. Visualize in Gazebo & RViz
+
+```bash
+ros2 launch Armo_bringup Armo_display.launch.xml
+```
+
+### 2. Mapping & Localization
+
+* **Start mapping**
+
+  ```bash
+  ros2 launch Armo_bringup Armo_display_map.launch.xml
+  ```
+* **Drive the robot**
+
+  ```bash
+  ros2 run teleop_twist_keyboard teleop_twist_keyboard
+  ```
+* **Save your map**
+
+  ```bash
+  ros2 run nav2_map_server map_saver_cli -f src/Armo_description/maps/New_map
+  ```
+
+### 3. Camera Feed & Gimbal Control
+
+* **View camera stream**
+
+  ```bash
+  ros2 run rqt_image_view rqt_image_view
+  ```
+* **Adjust camera angle**
+
+  ```bash
+  ros2 topic pub --once /joint0/cmd_pos std_msgs/msg/Float64 "data: <angle>"
+  ```
+
+  Replace `<angle>` between `-1.57` (−90°) and `1.57` (+90°).
+
+### 4. Autonomous Navigation
+
+* **Use a custom map**
+
+  1. Place your `*.yaml` and `*.pgm` files in `Armo_description/maps/`.
+  2. Edit line 30 of
+     `Armo_bringup/launch/Armo_display_navigation.launch.xml`:
+
+     ```xml
+     <arg name="map" value="$(find-pkg-share Armo_description)/maps/YourMap.yaml"/>
+     ```
+  3. Rebuild:
+
+     ```bash
+     colcon build --packages-select Armo_description Armo_bringup --symlink-install
+     source install/setup.bash
+     ```
+* **Launch navigation**
+
+  ```bash
+  ros2 launch Armo_bringup Armo_display_navigation.launch.xml
+  ```
+
+### 5. TF Transform Tree
+
+```bash
+ros2 run tf2_tools view_frames
+```
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork, file issues, or submit pull requests. Happy experimenting!
+
+---
 
 ## 📜 License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
-
-
-
-
-
-
