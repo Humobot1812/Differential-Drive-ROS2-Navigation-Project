@@ -55,6 +55,7 @@ This repository demonstrates a complete SLAM, localization, and navigation pipel
 -   │   ├── config/
 -   │   │   │   ├── ekf.yaml
 -   │   │   │   ├── gazebo_bridge.yaml
+-   │   │   │   ├── gazebo_bridge_2.yaml
 -   │   │   │   ├── param_nav2.yaml
 -   │   │   │   └── Slam_param.yaml
 -   │   ├── maps/
@@ -68,6 +69,46 @@ This repository demonstrates a complete SLAM, localization, and navigation pipel
 -   │   │   │   └── Maze.world
 -   │   ├── CMakeLists.txt
 -   │   └── package.xml
+
+# For running for just visualising in gazebo and rviz:
+- cd Humobotss_ws
+- sourec /opt/ros/humble/setup.bash
+- ros2 launch Armo_bringup Armo_display.launch.xml
+
+# For Mapping and Localization :
+- cd Humobotss_ws
+- sourec /opt/ros/humble/setup.bash
+- ros2 launch Armo_bringup Armo_display_map.launch.xml                                   --> in terminal 1
+- ros2 run teleop_twist_keyboard teleop_twist_keyboard                                   --> in terminal 2
+- ------>>>>
+- After the map is ready give below command to save the map:
+- ------>>>>>
+- ros2 run nav2_map_server map_saver_cli -f src/Armo_description/maps/New_map            --> in terminal 3
+
+# To view camera feed in rqt and move the camera joint :
+- ros2 run rqt_image_view rqt_image_view                                                 --> in terminal 4
+- ros2 topic pub --once  /joint0/cmd_pos std_msgs/msg/Float64 "data: <value>"            --> in terminal 5
+
+- You can give <value> as any number between -1.57 to 1.57 according to angle of camera you want as 1.57 = 90 degree and -1.57 = -90 degree
+
+
+# For Navigation :
+- cd Humobotss_ws
+- sourec /opt/ros/humble/setup.bash
+- ros2 launch Armo_bringup Armo_display_navigation.launch.xml                             --> in terminal 1
+
+# For transform tree :
+- ros2 run tf2_tools view_frames
+
+# Feel free to fork this repo and do your own experiment with this !!!!!!
+
+## 📜 License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+
+
+
 
 
 
