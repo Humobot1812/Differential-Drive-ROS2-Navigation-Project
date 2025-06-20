@@ -26,6 +26,6 @@ This repository demonstrates a complete SLAM, localization, and navigation pipel
 
 ## 📦 Installation
 1. **Clone the repository**
-   bash
-   git clone https://github.com/<your-username>/ros2-diffbot-navigation.git
-   cd ros2-diffbot-navigation
+   cd ros2_ws/src
+   git clone git@github.com:Humobot1812/Differential-Drive-ROS2-Navigation-Project.git
+   cd Differential-Drive-ROS2-Navigation-Project   
