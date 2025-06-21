@@ -10,7 +10,7 @@ amcl:
     beam_skip_distance: 0.5
     beam_skip_error_threshold: 0.9
     beam_skip_threshold: 0.3
-    do_beamskip: False
+    do_beamskip: True
     global_frame_id: "map"
     lambda_short: 0.1
     laser_likelihood_max_dist: 2.0
