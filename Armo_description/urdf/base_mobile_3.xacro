@@ -144,11 +144,11 @@
             <geometry>
                 <cylinder radius="0.02" length="0.01"/>
             </geometry>
-            <origin xyz="0 0 -0.005" rpy="0 0 0"/>
+            <origin xyz="0 0 -0.005" rpy="0 ${pi/2.0} 0"/>
             <material name="black"/>
         </visual>
-        <xacro:cylinder_inertia m="0.02" r="0.03" l="0.01" o_xyz="0 0 -0.005" o_rpy="0 0 0"/>
-        <xacro:cylinder_collision r="0.03" l="0.01" o_xyz="0 0 -0.005" o_rpy="0 0 0"/>
+        <xacro:cylinder_inertia m="0.02" r="0.03" l="0.01" o_xyz="0 0 -0.005" o_rpy="0 ${pi/2.0} 0"/>
+        <xacro:cylinder_collision r="0.03" l="0.01" o_xyz="0 0 -0.005" o_rpy="0 ${pi/2.0} 0"/>
     </link>
 
 
@@ -220,7 +220,7 @@
     <joint name="camera_optical_camera_link" type="fixed">
         <parent link="camera_link"/>
         <child link="optical_camera_link"/>
-        <origin xyz="${camera_length*1.5} 0 0" rpy="0 ${pi/2} 0"/>
+        <origin xyz="${camera_length*1.5} 0 0" rpy="0 0 0"/>
     </joint>
 
     
