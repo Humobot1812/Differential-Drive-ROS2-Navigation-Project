@@ -7,8 +7,8 @@
         <kp>200000.0</kp>
         <kd>5000.0</kd>
         <minDepth>0.002</minDepth>
-        <maxVel>3.0</maxVel>
-        <fdir1>0 1 0</fdir1>
+        <maxVel>10.0</maxVel>
+        <fdir1>1 0 0</fdir1>
     </gazebo>
 
     <gazebo reference="front_right_wheel_link">
@@ -17,8 +17,8 @@
         <kp>200000.0</kp>
         <kd>5000.0</kd>
         <minDepth>0.002</minDepth>
-        <maxVel>3.0</maxVel>
-        <fdir1>0 1 0</fdir1>
+        <maxVel>10.0</maxVel>
+        <fdir1>1 0 0</fdir1>
     </gazebo>
 
     <gazebo reference="rear_left_wheel_link">
@@ -27,8 +27,8 @@
         <kp>200000.0</kp>
         <kd>5000.0</kd>
         <minDepth>0.002</minDepth>
-        <maxVel>3.0</maxVel>
-        <fdir1>0 1 0</fdir1>
+        <maxVel>10.0</maxVel>
+        <fdir1>1 0 0</fdir1>
     </gazebo>
 
     <gazebo reference="rear_right_wheel_link">
@@ -37,8 +37,8 @@
         <kp>200000.0</kp>
         <kd>5000.0</kd>
         <minDepth>0.002</minDepth>
-        <maxVel>3.0</maxVel>
-        <fdir1>0 1 0</fdir1>
+        <maxVel>10.0</maxVel>
+        <fdir1>1 0 0</fdir1>
     </gazebo>
 
     <gazebo reference="base_link">
