@@ -33,7 +33,7 @@
 
     <include file="$(find-pkg-share slam_toolbox)/launch/online_async_launch.py">
         <arg name="use_sim_time" value="True"/>
-        <arg name="params_file" value="$(find-pkg-share Armo_description)/config/Slam_param.yaml"/>
+        <arg name="slam_params_file" value="$(find-pkg-share Armo_description)/config/Slam_param.yaml"/>
   
     </include>
 
